@@ -136,6 +136,8 @@ def initialize_session_state():
         st.session_state.current_answer_correct = None
     if 'file_uploaded' not in st.session_state:
         st.session_state.file_uploaded = False
+    if 'show_exit_confirm' not in st.session_state:
+        st.session_state.show_exit_confirm = False
 
 
 def get_questions_by_domain(questions: List[Dict], domain: int) -> List[Dict]:
@@ -266,6 +268,7 @@ def start_practice_exam():
     st.session_state.exam_end_time = datetime.now() + timedelta(minutes=EXAM_DURATION_MINUTES)
     st.session_state.show_results = False
     st.session_state.show_review = False
+    st.session_state.show_exit_confirm = False
     st.session_state.mode = 'practice_exam'
     st.rerun()
 
@@ -537,6 +540,7 @@ def render_study_setup():
             st.session_state.user_answers = {}
             st.session_state.show_feedback = False
             st.session_state.current_answer_correct = None
+            st.session_state.show_exit_confirm = False
             st.session_state.mode = 'study'
             st.rerun()
 
@@ -640,16 +644,23 @@ def render_study_mode():
 
     # Return to main menu (with warning)
     st.markdown("---")
-    if st.button("Return to Main Menu"):
+
+    if not st.session_state.show_exit_confirm:
+        if st.button("Return to Main Menu"):
+            st.session_state.show_exit_confirm = True
+            st.rerun()
+    else:
         st.warning("Are you sure? Your progress will be lost.")
         col1, col2 = st.columns(2)
         with col1:
             if st.button("Yes, Exit", key="confirm_exit"):
                 st.session_state.mode = 'main'
                 st.session_state.show_feedback = False
+                st.session_state.show_exit_confirm = False
                 st.rerun()
         with col2:
             if st.button("No, Continue", key="cancel_exit"):
+                st.session_state.show_exit_confirm = False
                 st.rerun()
 
 
@@ -718,6 +729,13 @@ def main():
         }
         div[data-testid="stMetricValue"] {
             font-size: 36px;
+        }
+        /* Force radio buttons to display vertically */
+        div[data-testid="stRadio"] > div {
+            flex-direction: column !important;
+        }
+        div[data-testid="stRadio"] > div > label {
+            margin-bottom: 8px;
         }
         </style>
     """, unsafe_allow_html=True)
