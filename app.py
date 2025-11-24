@@ -322,7 +322,8 @@ def render_practice_exam():
         "Select your answer:",
         options,
         index=default_index,
-        key=f"practice_q_{current_idx}"
+        key=f"practice_q_{current_idx}",
+        horizontal=False
     )
 
     # Extract selected letter
@@ -619,7 +620,8 @@ def render_study_mode():
             "Select your answer:",
             options,
             index=None,
-            key=f"study_q_{current_idx}"
+            key=f"study_q_{current_idx}",
+            horizontal=False
         )
 
         selected_letter = selected[0] if selected else None
