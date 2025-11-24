@@ -70,7 +70,7 @@ def parse_questions(content: str) -> List[Dict]:
 
             # Parse individual options
             options = []
-            option_pattern = r'([A-D])\.\s*(.+?)(?=\n[A-D]\.|$)'
+            option_pattern = r'([A-D])\.\s*(.+?)(?=\s+[A-D]\.|$)'
             option_matches = re.findall(option_pattern, options_text, re.DOTALL)
 
             for letter, text in option_matches:
