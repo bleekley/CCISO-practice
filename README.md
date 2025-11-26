@@ -115,7 +115,7 @@ Excerpt from source: Technical controls are implemented through technology and i
 ### 3. Choose Your Mode
 
 **Practice Exam:**
-- Simulates the full CCISO exam experience
+- Simulates the exam experience
 - 150-minute timer
 - 152 questions across all domains
 - Answer all questions or finish early
