@@ -1,6 +1,6 @@
-# CCISO Certification Testing Engine
+# CISO Study Helper
 
-A comprehensive Streamlit-based web application designed for CCISO (Certified Chief Information Security Officer) exam preparation. This interactive testing engine provides both practice exam and study modes to help candidates prepare effectively for the certification.
+A comprehensive Streamlit-based web application designed for CISO exam preparation and study. This interactive study tool provides both practice exam and study modes to help candidates prepare effectively for certification exams.
 
 ## Features
 
@@ -247,8 +247,8 @@ For issues, questions, or suggestions:
 
 ## Acknowledgments
 
-Built for CCISO certification candidates to practice and prepare effectively for the exam.
+Built for CISO certification candidates to practice and prepare effectively for their exams.
 
 ---
 
-**Good luck with your CCISO certification!** 🎓🔒
+**Good luck with your studies!** 🎓🔒
