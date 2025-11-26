@@ -743,6 +743,9 @@ def main():
     # Initialize session state
     initialize_session_state()
 
+    # Disclaimer banner
+    st.info("⚠️ **Disclaimer:** We are making our best effort approximation of the correct answers. There is no guarantee that the answers we have chosen in this testing engine are correct. Please use this as a study tool and verify answers with official CCISO materials.")
+
     # Route to appropriate view
     if st.session_state.mode == 'main':
         render_main_menu()
