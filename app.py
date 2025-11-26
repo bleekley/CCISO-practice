@@ -1,6 +1,6 @@
 """
-CCISO Certification Testing Engine
-A Streamlit-based application for CCISO exam preparation
+CISO Study Helper
+A Streamlit-based application for CISO exam preparation and study
 """
 
 import streamlit as st
@@ -201,13 +201,13 @@ def get_remaining_time() -> int:
 
 def render_main_menu():
     """Render the main menu interface."""
-    st.title("CCISO Certification Testing Engine")
+    st.title("CISO Study Helper")
 
     # File uploader
     uploaded_file = st.file_uploader(
         "Upload Question Repository",
         type=['txt'],
-        help="Upload a .txt file containing CCISO practice questions"
+        help="Upload a .txt file containing practice questions"
     )
 
     if uploaded_file is not None:
@@ -712,7 +712,7 @@ def render_study_results():
 def main():
     """Main application entry point."""
     st.set_page_config(
-        page_title="CCISO Testing Engine",
+        page_title="CISO Study Helper",
         page_icon="📚",
         layout="wide"
     )
@@ -742,6 +742,9 @@ def main():
 
     # Initialize session state
     initialize_session_state()
+
+    # Disclaimer banner
+    st.info("⚠️ **Disclaimer:** We are making our best effort approximation of the correct answers. There is no guarantee that the answers we have chosen in this testing engine are correct. Please use this as a study tool and verify answers with official study materials and authoritative sources.")
 
     # Route to appropriate view
     if st.session_state.mode == 'main':
